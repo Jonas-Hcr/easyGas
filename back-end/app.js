@@ -10,6 +10,9 @@ var app = express();
 const database = require('./config/database');
 database('mongodb://localhost:27017/easyGas');
 
+const cors = require('cors');
+app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

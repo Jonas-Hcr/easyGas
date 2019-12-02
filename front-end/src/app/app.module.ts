@@ -25,10 +25,10 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './ui/header/header.component';
 import { MainMenuComponent } from './ui/main-menu/main-menu.component';
 import { FooterComponent } from './ui/footer/footer.component';
-import { ProfessorListComponent } from './professor/professor-list/professor-list.component';
+import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
 import { ConfirmDlgComponent } from './ui/confirm-dlg/confirm-dlg.component';
 import { MatDialogModule } from '@angular/material';
-import { ProfessorFormComponent } from './professor/professor-form/professor-form.component'
+import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component'
 import { NgxMaskModule } from 'ngx-mask';
 import { TurmaListComponent } from './turma/turma-list/turma-list.component';
 import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
@@ -39,9 +39,9 @@ import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
     HeaderComponent,
     MainMenuComponent,
     FooterComponent,
-    ProfessorListComponent,
+    UsuarioListComponent,
     ConfirmDlgComponent,
-    ProfessorFormComponent,
+    UsuarioFormComponent,
     TurmaListComponent,
     TurmaFormComponent
   ],
