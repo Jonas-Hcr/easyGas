@@ -1,0 +1,14 @@
+mat-toolbar {
+   position: fixed; /* Posição fixa */
+   bottom: 0; /* Colado no fundo da página */
+   min-height: 48px; /* Diminui a altura mínima */
+}
+
+mat-toolbar-row {
+   height: 48px;
+}
+
+span {
+   margin: 0 auto; /* Centraliza o elemento */
+   font-size: 85%; /* Diminui a fonte */
+}

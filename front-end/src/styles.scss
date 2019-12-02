@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~material-design-icons/iconfont/material-icons.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+table.mat-table {
+   width: 100%; /* Toda a largura disponível */
+}
+
+section#content {
+   margin: 25px; /* Margem dos quatro lados */
+}
+
+.mat-row .mat-raised-button {
+   visibility: hidden; /* Botões escondidos por padrão */
+}
+
+.mat-row:hover .mat-raised-button {
+   visibility: visible; /* Botões voltam a ficar visíveis com o mouse */
+}
+
+.mat-row:hover {
+   background-color: rgba(yellow, 0.10); /* Amarelo 10% de opacidade */
+}
+
+.add-new-toolbar {
+   background: transparent;
+   margin-bottom: 25px;
+}
+
+.add-new-toolbar mat-toolbar-row {
+   padding: 0;
+}
+
+.add-new-toolbar a {
+   font-size: 120%;
+   padding: 8px 16px;   
+}
+
+.std-form mat-form-field {
+   max-width: 500px;
+   width: 100%;
+   margin-right: 30px;
+}
+
+.std-form {
+   max-width: 80%;
+   margin: 0 auto;
+}
+
+.form-buttons {
+   background: transparent;
+}
+
+.form-buttons mat-toolbar-row {
+   display: flex;
+   justify-content: space-around;
+}
