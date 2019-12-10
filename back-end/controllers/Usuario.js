@@ -6,7 +6,7 @@ controller.novo = async function(req, res) {
   try {
     await Usuario.create(req.body);
     // HTTP 201: Created
-    res.sendStatus(201).end();
+    res.status(201).send('');
   } catch (erro) {
     console.error(erro);
     // HTTP 500: Internal server error

@@ -1,0 +1,47 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+   <mat-form-field>
+      <input matInput placeholder="Partida" required [(ngModel)]="rota.partida" name="partida">
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Destino" required [(ngModel)]="rota.destino" name="destino">
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Favorita?" required [(ngModel)]="rota.favorita" name="favorita">
+         <mat-option *ngFor="let favorita of favoritas" [value]="favorita._id">
+            {{ favorita.nome }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Usuario" required [(ngModel)]="rota.usuario" name="usuario">
+         <mat-option *ngFor="let usuario of usuarios" [value]="usuario._id">
+            {{ usuario.nome }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Quilometragem" required [(ngModel)]="rota.quilometragem" name="quilometragem">
+         <mat-option *ngFor="let quilometragem of quilometragens" [value]="quilometragem._id">
+            {{ quilometragem.distancia }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+         <button mat-raised-button type="submit" color="accent">
+            Salvar
+         </button>
+         <button mat-raised-button type="button" (click)="voltar(f)">
+            Voltar
+         </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+</form>

@@ -32,6 +32,13 @@ import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.compon
 import { NgxMaskModule } from 'ngx-mask';
 import { AbastecimentoListComponent } from './abastecimento/abastecimento-list/abastecimento-list.component';
 import { AbastecimentoFormComponent } from './abastecimento/abastecimento-form/abastecimento-form.component';
+import { CarroListComponent } from './carro/carro-list/carro-list.component';
+import { CarroFormComponent } from './carro/carro-form/carro-form.component';
+import { RotaListComponent } from './rota/rota-list/rota-list.component';
+import { RotaFormComponent } from './rota/rota-form/rota-form.component';
+import { QuilometragemListComponent } from './quilometragem/quilometragem-list/quilometragem-list.component';
+import { QuilometragemFormComponent } from './quilometragem/quilometragem-form/quilometragem-form.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +50,13 @@ import { AbastecimentoFormComponent } from './abastecimento/abastecimento-form/a
     ConfirmDlgComponent,
     UsuarioFormComponent,
     AbastecimentoListComponent,
-    AbastecimentoFormComponent
+    AbastecimentoFormComponent,
+    CarroListComponent,
+    CarroFormComponent,
+    RotaListComponent,
+    RotaFormComponent,
+    QuilometragemListComponent,
+    QuilometragemFormComponent
   ],
   imports: [
     HttpClientModule,
