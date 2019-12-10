@@ -5,7 +5,7 @@ import { environment as env } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class TurmaService {
+export class CarroService {
 
   /* INJEÇÃO DE DEPENDÊNCIA
     O atributo privado http, do tipo HttpClient,
@@ -16,7 +16,7 @@ export class TurmaService {
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'turma';
+  private endPoint : string = 'carro';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();
@@ -29,16 +29,16 @@ export class TurmaService {
       {body: {_id: id}}).toPromise();
   }
 
-  novo(turma: any) {
-    return this.http.post(env.apiUri + this.endPoint, turma).toPromise();
+  novo(carro: any) {
+    return this.http.post(env.apiUri + this.endPoint, carro).toPromise();
   }
 
   obterUm(id: string) {
     return this.http.get(env.apiUri + this.endPoint + '/' + id).toPromise();
   }
 
-  atualizar(turma: any) {
-    return this.http.put(env.apiUri + this.endPoint, turma).toPromise();
+  atualizar(carro: any) {
+    return this.http.put(env.apiUri + this.endPoint, carro).toPromise();
   }
 
 }

@@ -5,7 +5,7 @@ import { environment as env } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CursoService {
+export class AbastecimentoService {
 
   /* INJEÇÃO DE DEPENDÊNCIA
     O atributo privado http, do tipo HttpClient,
@@ -16,7 +16,7 @@ export class CursoService {
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'curso';
+  private endPoint : string = 'abastecimento';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();
@@ -29,16 +29,16 @@ export class CursoService {
       {body: {_id: id}}).toPromise();
   }
 
-  novo(curso: any) {
-    return this.http.post(env.apiUri + this.endPoint, curso).toPromise();
+  novo(abastecimento: any) {
+    return this.http.post(env.apiUri + this.endPoint, abastecimento).toPromise();
   }
 
   obterUm(id: string) {
     return this.http.get(env.apiUri + this.endPoint + '/' + id).toPromise();
   }
 
-  atualizar(curso: any) {
-    return this.http.put(env.apiUri + this.endPoint, curso).toPromise();
+  atualizar(abastecimento: any) {
+    return this.http.put(env.apiUri + this.endPoint, abastecimento).toPromise();
   }
 
 }

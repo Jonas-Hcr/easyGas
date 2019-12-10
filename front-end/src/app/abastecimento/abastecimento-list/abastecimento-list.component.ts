@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { TurmaService } from '../turma.service';
+import { AbastecimentoService } from '../abastecimento.service';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-turma-list',
-  templateUrl: './turma-list.component.html',
-  styleUrls: ['./turma-list.component.scss']
+  selector: 'app-abastecimento-list',
+  templateUrl: './abastecimento-list.component.html',
+  styleUrls: ['./abastecimento-list.component.scss']
 })
-export class TurmaListComponent implements OnInit {
+export class AbastecimentoListComponent implements OnInit {
 
-  /* TurmaService injetado como dependência */
+  /* AbastecimentoService injetado como dependência */
   constructor(
-    private turmaSrv: TurmaService,
+    private abastecimentoSrv: AbastecimentoService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) { }
 
-  turmas: any = []; // Vetor vazio
-  displayedColumns: string[] = ['nome', 'professor', 'curso', 'dia_semana', 'horario', 'editar', 'excluir'];
+  abastecimentos: any = []; // Vetor vazio
+  displayedColumns: string[] = ['litros', 'valor_total', 'carro', 'usuario', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {
-      this.turmas = await this.turmaSrv.listar();
+      this.abastecimentos = await this.abastecimentoSrv.listar();
     }
     catch(error) {
       console.error(error);
@@ -36,7 +36,7 @@ export class TurmaListComponent implements OnInit {
       // Exibição da caixa de diálogo de confirmação
       let dialogRef = this.dialog.open(ConfirmDlgComponent, {
         width: '50%',
-        data: { question: 'Deseja realmente excluir esta turma?' }
+        data: { question: 'Deseja realmente excluir este abastecimento?' }
       });
 
       // Captura do resultado da confirmação (true ou false)
@@ -44,7 +44,7 @@ export class TurmaListComponent implements OnInit {
       let result = await dialogRef.afterClosed().toPromise();
 
       if(result) {
-        await this.turmaSrv.excluir(id);
+        await this.abastecimentoSrv.excluir(id);
         this.snackBar.open('Exclusão efetuada com sucesso', 'Entendi',
           { duration: 3000 });
         this.ngOnInit(); // Atualizar os dados

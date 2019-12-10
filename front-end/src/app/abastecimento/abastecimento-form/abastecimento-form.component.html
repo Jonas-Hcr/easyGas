@@ -1,0 +1,43 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+   <mat-form-field>
+      <input matInput placeholder="Litros" required [(ngModel)]="abastecimento.litros" name="litros">
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Valor por Litro" required [(ngModel)]="abastecimento.valor_litro" name="valor_litro">
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Valor total" required [(ngModel)]="abastecimento.valor_total" name="valor_total">
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Carro" required [(ngModel)]="abastecimento.carro" name="carro">
+         <mat-option *ngFor="let carro of carros" [value]="carro._id">
+            {{ carro.modelo }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Usuario" required [(ngModel)]="abastecimento.usuario" name="usuario">
+         <mat-option *ngFor="let usuario of usuarios" [value]="usuario._id">
+            {{ usuario.nome }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+         <button mat-raised-button type="submit" color="accent">
+            Salvar
+         </button>
+         <button mat-raised-button type="button" (click)="voltar(f)">
+            Voltar
+         </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+</form>

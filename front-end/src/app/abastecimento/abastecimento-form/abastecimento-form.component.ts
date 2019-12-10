@@ -3,55 +3,70 @@ import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
-import { ProfessorService } from '../professor.service';
+import { AbastecimentoService } from '../abastecimento.service';
+import { CarroService } from '../../carro/carro.service';
+import { UsuarioService } from '../../usuario/usuario.service';
 
 @Component({
-  selector: 'app-professor-form',
-  templateUrl: './professor-form.component.html',
-  styleUrls: ['./professor-form.component.scss']
+  selector: 'app-abastecimento-form',
+  templateUrl: './abastecimento-form.component.html',
+  styleUrls: ['./abastecimento-form.component.scss']
 })
-export class ProfessorFormComponent implements OnInit {
+export class AbastecimentoFormComponent implements OnInit {
 
   constructor(
-    private professorSrv: ProfessorService,
+    private abastecimentoSrv: AbastecimentoService,
+    private carroSrv: CarroService,
+    private usuarioSrv: UsuarioService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) { }
 
-  title: string = 'Novo professor';
-  professor: any = {};
+  title: string = 'Novo Usuário';
+  abastecimento: any = {};
+  carros: any = [];
+  usuarios: any = [];
   
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;
     if(params['id']) { // Se houver um parâmetro chamado id na rota
       try {
-        // Busca os dados do professor e preenche a variável ligada ao form
-        this.professor = await this.professorSrv.obterUm(params['id']);
-        this.title = 'Editando professor';
+        // Busca os dados do abastecimento e preenche a variável ligada ao form
+        this.abastecimento = await this.abastecimentoSrv.obterUm(params['id']);
+        this.title = 'Editando abastecimento';
       }
       catch(error) {
         console.log(error);
       }
+    }
+
+    // Entidades relacionadas
+    try{
+      this.carros = await this.carroSrv.listar();
+      this.usuarios = await this.usuarioSrv.listar();
+    }
+    catch(error) {
+      console.log(error);
     }
   }
 
   async salvar(form: NgForm) {
     if(form.valid) {
       try {
-        let msg = 'Professor criado com sucesso.';
+        let msg = 'Abastecimento criado com sucesso.';
         
-        if(this.professor._id) { // Se tem _id, está editando
-          msg = 'Professor atualizado com sucesso';
-          await this.professorSrv.atualizar(this.professor);
+        if(this.abastecimento._id) { // Se tem _id, está editando
+          msg = 'Abastecimento atualizado com sucesso';
+          await this.abastecimentoSrv.atualizar(this.abastecimento);
         }
-        else { // Criação de um novo professor
-          await this.professorSrv.novo(this.professor);
+        else { // Criação de um novo abastecimento
+          await this.abastecimentoSrv.novo(this.abastecimento);
         }
         
         this.snackBar.open(msg, 'Entendi', {duration: 3000});
-        this.router.navigate(['/professor']); // Volta à listagem
+        this.router.navigate(['/abastecimento']); // Volta à listagem
       }
       catch(error) {
         console.log(error);
@@ -78,7 +93,7 @@ export class ProfessorFormComponent implements OnInit {
     }
 
     if(result) {
-      this.router.navigate(['/professor']); // Retorna à listagem
+      this.router.navigate(['/abastecimento']); // Retorna à listagem
     }
 
   }

@@ -30,8 +30,8 @@ import { ConfirmDlgComponent } from './ui/confirm-dlg/confirm-dlg.component';
 import { MatDialogModule } from '@angular/material';
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component'
 import { NgxMaskModule } from 'ngx-mask';
-import { TurmaListComponent } from './turma/turma-list/turma-list.component';
-import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
+import { AbastecimentoListComponent } from './abastecimento/abastecimento-list/abastecimento-list.component';
+import { AbastecimentoFormComponent } from './abastecimento/abastecimento-form/abastecimento-form.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +42,8 @@ import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
     UsuarioListComponent,
     ConfirmDlgComponent,
     UsuarioFormComponent,
-    TurmaListComponent,
-    TurmaFormComponent
+    AbastecimentoListComponent,
+    AbastecimentoFormComponent
   ],
   imports: [
     HttpClientModule,
