@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { QuilometragemService } from '../quilometragem.service';
+import { UsuarioService } from '../../usuario/usuario.service';
+import {RotaService} from '../../rota/rota.service';
 
 @Component({
   selector: 'app-quilometragem-form',
@@ -14,6 +16,8 @@ export class QuilometragemFormComponent implements OnInit {
 
   constructor(
     private quilometragemSrv: QuilometragemService,
+    private usuarioSrv: UsuarioService,
+    private rotaSrv: RotaService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
@@ -22,6 +26,8 @@ export class QuilometragemFormComponent implements OnInit {
 
   title: string = 'Nova quilometragem';
   quilometragem: any = {};
+  usuarios: any = [];
+  rotas: any = [];
   
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;
@@ -34,6 +40,15 @@ export class QuilometragemFormComponent implements OnInit {
       catch(error) {
         console.log(error);
       }
+    }
+
+    // Entidades relacionadas
+    try{
+      this.usuarios = await this.usuarioSrv.listar();
+      this.rotas = await this.rotaSrv.listar();
+    }
+    catch(error) {
+      console.log(error);
     }
   }
 

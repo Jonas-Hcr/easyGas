@@ -27,6 +27,20 @@
    </ng-container>
 
    <!-- senha Column -->
+   <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef> usuario </th>
+      <td mat-cell *matCellDef="let quilometragem"> {{quilometragem.usuario.nome}} </td>
+   </ng-container>
+
+   <!-- senha Column -->
+   <ng-container matColumnDef="rota">
+      <th mat-header-cell *matHeaderCellDef> rota </th>
+      <td mat-cell *matCellDef="let quilometragem">
+         {{quilometragem.rota.partida + ' - ' + quilometragem.rota.destino}}
+      </td>
+   </ng-container>
+
+   <!-- senha Column -->
    <ng-container matColumnDef="data">
       <th mat-header-cell *matHeaderCellDef> Data </th>
       <td mat-cell *matCellDef="let quilometragem"> {{ quilometragem.data | date:"dd/MM/yyyy" }} </td>

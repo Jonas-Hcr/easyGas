@@ -26,7 +26,7 @@
    </mat-form-field>
 
    <mat-form-field>
-      <mat-select placeholder="Quilometragem" required [(ngModel)]="rota.quilometragem" name="quilometragem">
+      <mat-select placeholder="Quilometragem" [(ngModel)]="rota.quilometragem" name="quilometragem">
          <mat-option *ngFor="let quilometragem of quilometragens" [value]="quilometragem._id">
             {{ quilometragem.distancia }}
          </mat-option>

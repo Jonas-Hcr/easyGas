@@ -9,6 +9,16 @@ const schema = mongoose.Schema({
         type: Number,
         required: true,
     },
+    usuario:{
+        type: mongoose.ObjectId,
+        ref: 'Usuario',
+        required: true,
+    },
+    rota: {
+        type: mongoose.ObjectId,
+        ref: 'Rota',
+        required: true,
+    },
     data:{
         type: Date,
         required: true,

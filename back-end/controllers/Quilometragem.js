@@ -5,6 +5,7 @@ const controller = {}; //objeto vazio
 //async = assincrona
 controller.novo = async function(req, res){
     try{
+        console.log(req.body);
         await Quilometragem.create(req.body);
         //HTTP 201: Created
         res.status(201).send('');
@@ -19,8 +20,10 @@ controller.novo = async function(req, res){
 controller.listar = async function(req, res) {
     try{
         //cursoS porque retorna um vetor(mesmo que vazio)
-        const quilometragem = await Quilometragem.find();
-        res.send(quilometragem);
+        const quilometragem = await Quilometragem.find()
+            .populate('usuario')
+            .populate('rota');
+        res.send(quilometragem);            
     } catch (erro){
         console.error(erro);
         res.sendStatus(500).end();

@@ -18,7 +18,7 @@ export class QuilometragemListComponent implements OnInit {
   ) { }
 
   quilometragens: any = []; // Vetor vazio
-  displayedColumns: string[] = ['distancia', 'tempo_gasto', 'data', 'editar', 'excluir'];
+  displayedColumns: string[] = ['distancia', 'tempo_gasto', 'usuario', 'rota', 'data', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {

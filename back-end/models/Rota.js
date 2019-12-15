@@ -21,7 +21,7 @@ const schema = mongoose.Schema({
     quilometragem:{
         type: mongoose.ObjectId,
         ref: 'Quilometragem',
-        required: true,
+        required: false,
     }
 });
 
