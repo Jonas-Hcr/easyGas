@@ -35,9 +35,7 @@ controller.listar = async function(req, res) {
 controller.obterUm = async function(req, res) {
    const id = req.params.id;
    try {
-      const abastecimento = await Abastecimento.findById(id)
-         .populate('carro') // Nome do *atributo* (minúsculo)
-         .populate('usuario')
+      const abastecimento = await Abastecimento.findById(id);
       if(abastecimento) {    // Avaliação encontrada (variável preenchida)
          res.send(abastecimento);
       }

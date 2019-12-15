@@ -4,7 +4,7 @@
    <mat-toolbar-row>
       <a mat-raised-button color="accent" [routerLink]="['/rota/novo']">
          <mat-icon>add_circle_outline</mat-icon>
-         Novo rota
+         Nova rota
       </a>
    </mat-toolbar-row>
 </mat-toolbar>
@@ -29,7 +29,7 @@
    <!-- senha Column -->
    <ng-container matColumnDef="favorita">
       <th mat-header-cell *matHeaderCellDef> favorita </th>
-      <td mat-cell *matCellDef="let rota"> {{rota.favorita}} </td>
+      <td mat-cell *matCellDef="let rota"> {{rota.favorita ? 'Sim' : 'Não'}} </td>
    </ng-container>
 
    <!-- senha Column -->
